@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Appointment Booking Test</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="card hero">
+      <div>
+        <p class="eyebrow">Test booking page</p>
+        <h1>Book an Appointment</h1>
+        <p class="lead">Simple GitHub-hosted booking page connected to Google Calendar through Google Apps Script.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <form id="bookingForm">
+        <div class="grid two">
+          <label>
+            <span>Full name</span>
+            <input type="text" name="name" required />
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" required />
+          </label>
+        </div>
+
+        <div class="grid two">
+          <label>
+            <span>Phone</span>
+            <input type="tel" name="phone" required />
+          </label>
+          <label>
+            <span>Reason for visit</span>
+            <input type="text" name="reason" placeholder="Consultation / Review / etc." required />
+          </label>
+        </div>
+
+        <div class="grid two">
+          <label>
+            <span>Date</span>
+            <input type="date" name="date" id="dateInput" required />
+          </label>
+          <label>
+            <span>Available time</span>
+            <select name="time" id="timeSelect" required>
+              <option value="">Choose a date first</option>
+            </select>
+          </label>
+        </div>
+
+        <label>
+          <span>Notes</span>
+          <textarea name="notes" rows="4" placeholder="Optional notes"></textarea>
+        </label>
+
+        <button type="submit" id="submitBtn">Book Appointment</button>
+      </form>
+
+      <p id="status" class="status"></p>
+    </section>
+  </main>
+
+  <script>
+    window.BOOKING_CONFIG = {
+      scriptUrl: "https://script.google.com/macros/s/AKfycbzpv_Ez733uZhHA1gqieUnWbLI53r6BK9eOZ7GNluvhwX8zlTmvc0te_cpc9z5oU_Hutg/exec",
+      timezone: "Africa/Johannesburg",
+      slotMinutes: 30
+    };
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>
